@@ -1,5 +1,5 @@
 <?php
-include( $_SERVER['DOCUMENT_ROOT'] . '/include/php/voiceroom_base.php');
+include( $_SERVER['DOCUMENT_ROOT'] . '../include/php/voiceroom_base.php');
 
 $err_msg = "";
 
@@ -23,12 +23,12 @@ $err_msg = "";
 <html lang="ja">
 
 <head>
-  <?php include( $_SERVER['DOCUMENT_ROOT'] . '/include/php/head.php'); ?>
+  <?php include('../include/php/head.php'); ?>
 </head>
 
 <body>
   <div id="include-header">
-    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/include/php/header.php'); ?>
+    <?php include('../include/php/header.php'); ?>
   </div>
   <div class="container">
     <div class="columns is-desktop is-centered is-marginless">

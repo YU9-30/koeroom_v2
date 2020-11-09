@@ -1,5 +1,5 @@
 <?php
-include( $_SERVER['DOCUMENT_ROOT'] . '/include/php/voiceroom_base.php');
+include('../include/php/voiceroom_base.php');
 
 $err_msg = "";
 if (isset($_POST['login'])) {

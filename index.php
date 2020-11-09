@@ -1,5 +1,5 @@
 <?php
-include( '/public/include/php/voiceroom_base.php');
+include( '/include/php/voiceroom_base.php');
 $err_msg = "";
 if (isset($_POST['create'])) {
   $roomid = $_POST['roomid'];
@@ -23,13 +23,13 @@ if (isset($_POST['create'])) {
 <html lang="ja">
 
 <head>
-  <?php include( 'public/include/php/head.php'); ?>
+  <?php include('./include/php/head.php'); ?>
 </head>
 
 <body>
   
   <div id="include-header">
-    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/public/include/php/header.php'); ?>
+    <?php include('./include/php/header.php'); ?>
   </div>
   
   <div class="container">

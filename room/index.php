@@ -7,7 +7,7 @@ $err_msg = "";
   $roompass = $_GET['roomid'];
   try {
     $db = new PDO("mysql:host=" . $server . "; dbname=".$database."; charset=utf8", $user, $pass );
-    echo $database;
+    
     $sql = 'select * from' . $database .'.koeroom_db where username = :name';
     $stmt = $db->prepare($sql);
     $stmt->execute(array(':name' => $username));
@@ -35,6 +35,7 @@ $err_msg = "";
     <div class="columns is-desktop is-centered is-marginless">
       <div class="column is-centered has-text-centered mt-5">
         <?php if ($result['roompass'] == $_GET['roomid']){ ?>
+        
             <p>Room ID</p><p id="js-room-id" class="mb-1"><?php echo $result['roompass'] ?></p>
             <div class="mb-5">
               <a href="https://twitter.com/share" class="twitter-share-button" data-text="Koeroomで通話しませんか？URLをクリックすることで部屋に入室できます">Tweet</a>
@@ -81,7 +82,7 @@ $err_msg = "";
         <p>Mode:<span id="js-room-mode"></span>で接続中</p>
       </div>
     </footer>
-    <?php }else{ ?>
+    <?php }else{ echo $database; ?>
         <p>Roomが見つかりません</p>
     <?php } ?>
             

@@ -7,7 +7,7 @@ if (isset($_POST['create'])) {
   $username = $_SESSION['username'];
   try {
     $db = new PDO("mysql:host=" . $server . "; dbname=".$database."; charset=utf8", $user, $pass );
-    $sql = 'update koeroom_db set roompass = :roomid  where username = :name';
+    $sql = 'update' . $database . '.koeroom_db set roompass = :roomid  where username = :name';
     $stmt = $db->prepare($sql);
     $stmt->execute(array(':name' =>$_SESSION['username'],':roomid' =>$roomid));
     $result = $stmt->fetch(PDO::FETCH_ASSOC);

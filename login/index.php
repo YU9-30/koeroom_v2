@@ -7,7 +7,7 @@ if (isset($_POST['login'])) {
   $password = $_POST['password'];
   try {
     $db = new PDO("mysql:host=" . $server . "; dbname=".$database."; charset=utf8", $user, $pass );
-    $sql = 'select * from koeroom_db where username = :name';
+    $sql = 'select * from' . $database . '.koeroom_db where username = :name';
     $stmt = $db->prepare($sql);
     $stmt->execute(array(':name' => $username));
     $result = $stmt->fetch(PDO::FETCH_ASSOC);

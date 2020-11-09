@@ -1,0 +1,6 @@
+private/
+*.map
+public/css/bulma.min.css
+public/css/bulma-rtl.css
+public/css/bulma-rtl.min.css
+public/test.php

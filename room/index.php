@@ -33,7 +33,7 @@ $err_msg = "";
   <div class="container">
     <div class="columns is-desktop is-centered is-marginless">
       <div class="column is-centered has-text-centered mt-5">
-        <?php if ($result['roompass'] == $_GET['roomid']){ ?>
+        <?php if ($result['roompass'] == $roompass){ ?>
         
             <p>Room ID</p><p id="js-room-id" class="mb-1"><?php echo $result['roompass'] ?></p>
             <div class="mb-5">
@@ -81,7 +81,7 @@ $err_msg = "";
         <p>Mode:<span id="js-room-mode"></span>で接続中</p>
       </div>
     </footer>
-    <?php }else{ echo $result['roompass'];?>
+    <?php }else{ echo $result['roompass']; echo $roompass;?>
         <p>Roomが見つかりません</p>
     <?php } ?>
             

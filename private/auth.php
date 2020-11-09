@@ -1,7 +1,7 @@
 <?php
     $db = parse_url($_SERVER['CLEARDB_DATABASE_URL']);
     $server = $db["host"];
-    $database = substr($url["path"], 1);
+    $database = substr($db["path"], 1);
     $user = $db['user'];
     $pass = $db['pass'];
     $options = array(

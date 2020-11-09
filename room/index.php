@@ -6,8 +6,8 @@ $err_msg = "";
   $username = $_GET['roomadmin'];
   $roompass = $_GET['roomid'];
   try {
-    $db = new PDO("mysql:host=" . $server . "; dbname=".$database."; charset=utf8", $user, $pass );
-    $sql = 'SELECT * FROM' . $database .'.koeroom_db WHERE username = :name';
+    $db = new PDO("mysql:host=" . $server . "; dbname=" .$database. "; charset=utf8", $user, $pass);
+    $sql = 'SELECT * FROM' . $database . '.koeroom_db WHERE username = :name';
     $stmt = $db->prepare($sql);
     $stmt->execute(array(':name' => $username));
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -81,7 +81,7 @@ $err_msg = "";
         <p>Mode:<span id="js-room-mode"></span>で接続中</p>
       </div>
     </footer>
-    <?php }else{ echo $result['roompass']; echo $roompass;?>
+    <?php }else{ echo $result['roompass']; echo '1:'. $roompass;?>
         <p>Roomが見つかりません</p>
     <?php } ?>
             

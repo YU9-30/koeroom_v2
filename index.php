@@ -35,7 +35,7 @@ if (isset($_POST['create'])) {
   <div class="container">
     <div class="columns is-mobile is-marginless is-centered">
       <div class="column is-centered mt-5 is-8">
-        /**/
+       
         <?php if($_SESSION['auth']){ ?>
           <form action="" method="post">
             <div class="control mb-2 is-centered">

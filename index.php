@@ -1,11 +1,12 @@
 <?php
 include( './include/php/voiceroom_base.php');
+require ("./private/auth.php");//データベース接続のための情報
 $err_msg = "";
 if (isset($_POST['create'])) {
   $roomid = $_POST['roomid'];
   $username = $_SESSION['username'];
   try {
-    $db = new PDO("mysql:host=" . $server . "; dbname=".$database."; charset=utf8", $user, $pass );
+    $db = new PDO($dsn,$user,$password,$options);
     $sql = 'update koeroom_db set roompass = :roomid  where username = :name';
     $stmt = $db->prepare($sql);
     $stmt->execute(array(':name' =>$_SESSION['username'],':roomid' =>$roomid));

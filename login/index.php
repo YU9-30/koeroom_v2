@@ -7,7 +7,7 @@ if (isset($_POST['login'])) {
   $password = $_POST['password'];
   try {
     $dbh = new PDO($dsn,$user,$password,$options);
-    $sql = 'select * from koeroom_db where username = :name';
+    $sql = 'select * from' . $db['dbname'] . '.koeroom_db where username = :name';
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':name' => $username));
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -31,6 +31,7 @@ if (isset($_POST['login'])) {
 ?>
 <!doctype html>
 <html lang="ja">
+
 <head>
   <?php include('../include/php/head.php'); ?>
 </head>

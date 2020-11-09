@@ -81,7 +81,7 @@ $err_msg = "";
         <p>Mode:<span id="js-room-mode"></span>で接続中</p>
       </div>
     </footer>
-    <?php }else{ ?>
+    <?php }else{ echo $result['roompass'];?>
         <p>Roomが見つかりません</p>
     <?php } ?>
             

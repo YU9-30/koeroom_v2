@@ -36,19 +36,15 @@ $err_msg = "";
         <?php if ($result['roompass'] == $_GET['roomid']){ ?>
             <p>Room ID</p><p id="js-room-id" class="mb-1"><?php echo $result['roompass'] ?></p>
             <div class="mb-5">
-            <a href="https://twitter.com/share" class="twitter-share-button" data-text="Koeroomで通話しませんか？URLをクリックすることで部屋に入室できます">Tweet</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>  
-          </div>
+              <a href="https://twitter.com/share" class="twitter-share-button" data-text="Koeroomで通話しませんか？URLをクリックすることで部屋に入室できます">Tweet</a>
+              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>  
+            </div>
             <div class="buttons is-centered ">
               <div class="buttons">
                 <button id="js-join-trigger" class="button">参加</button>
                 <button id="js-leave-trigger" class="button is-danger">退出</button>
               </div>
             </div>
-        <?php }else{ ?>
-        <p>Roomが見つかりません</p>
-        <?php } ?>
-
       </div>
     </div>
 
@@ -84,7 +80,10 @@ $err_msg = "";
         <p>Mode:<span id="js-room-mode"></span>で接続中</p>
       </div>
     </footer>
-
+    <?php }else{ ?>
+        <p>Roomが見つかりません</p>
+    <?php } ?>
+            
   </div>
   <script src="https://cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
   <script src="/include/js/key1334.js"></script>

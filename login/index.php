@@ -7,12 +7,10 @@ if (isset($_POST['login'])) {
   $password = $_POST['password'];
   try {
     $dbh = new PDO($dsn,$user,$password,$options);
-    echo "1";
     $sql = 'select * from koeroom_db where username = :name';
-    $stmt = $db->prepare($sql);
+    $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':name' => $username));
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
-    echo "1";
     $stmt = null;
     $dbh = null;
     echo $password;

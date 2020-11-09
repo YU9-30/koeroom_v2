@@ -8,7 +8,7 @@
     try {
       $dbh = new PDO($dsn,$user,$password,$options);
       $sql = 'update koeroom_db set roompass = :roomid  where username = :name';
-      $stmt = $db->prepare($sql);
+      $stmt = $dbh->prepare($sql);
       $stmt->execute(array(':name' =>$_SESSION['username'],':roomid' =>$roomid));
       $result = $stmt->fetch(PDO::FETCH_ASSOC);
       $stmt = null;

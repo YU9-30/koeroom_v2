@@ -23,7 +23,7 @@ if (isset($_POST['create'])) {
 <html lang="ja">
 
 <head>
-  <?php include('/include/php/head.php'); ?>
+  <?php include('./include/php/head.php'); ?>
 </head>
 
 <body>

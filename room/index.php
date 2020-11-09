@@ -1,17 +1,18 @@
 <?php
-  include('../include/php/voiceroom_base.php');
-  require ("../private/auth.php");//データベース接続のための情報
-  $err_msg = "";
+include('../include/php/voiceroom_base.php');
+require ("../private/auth.php");
+$err_msg = "";
+
   $username = $_GET['roomadmin'];
   $roompass = $_GET['roomid'];
   try {
-    $dbh = new PDO($dsn,$user,$password,$options);
-    $sql = 'select * from' . $db['dbname'] . '.koeroom_db where username = :name';
-    $stmt = $dbh->prepare($sql);
+    $db = new PDO("mysql:host=" . $server . "; dbname=".$database."; charset=utf8", $user, $pass );
+    $sql = 'select * from koeroom_db where username = :name';
+    $stmt = $db->prepare($sql);
     $stmt->execute(array(':name' => $username));
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
     $stmt = null;
-    $dbh = null;
+    $db = null;
     
   }catch (PDOExeption $e) {
     echo $e->getMessage();

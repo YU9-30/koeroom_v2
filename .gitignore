@@ -1,4 +1,3 @@
-private/
 *.map
 public/css/bulma.min.css
 public/css/bulma-rtl.css

@@ -1,19 +1,19 @@
 <?php
-
+require ("../private/auth.php");//データベース接続のための情報
 $err_msg = "";
 if (isset($_POST['login'])) {
   $username = $_POST['username'];
   $password = $_POST['password'];
   try {
-    $db = new PDO("mysql:host=" . $server . "; dbname=".$database."; charset=utf8", $user, $pass );
+    $dbh = new PDO($dsn,$user,$password,$options);
     $sql = 'select * from koeroom_db where username = :name';
     $stmt = $db->prepare($sql);
     $stmt->execute(array(':name' => $username));
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
     $stmt = null;
-    $db = null;
+    $dbh = null;
     if(password_verify($password, $result['password'])){
-        header('location: https://voiceroom.yu-9.work/');
+        header('location: https://koeroom.herokuapp.com/');
         exit;
     }else{
         echo "ログイン認証に失敗しました";

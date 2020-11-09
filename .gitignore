@@ -4,3 +4,4 @@ public/css/bulma-rtl.css
 public/css/bulma-rtl.min.css
 public/test.php
 vendor/
+private/auth_firebase.json

@@ -1,24 +1,24 @@
 <?php
-include( './include/php/voiceroom_base.php');
-require ("./private/auth.php");//データベース接続のための情報
-$err_msg = "";
-if (isset($_POST['create'])) {
-  $roomid = $_POST['roomid'];
-  $username = $_SESSION['username'];
-  try {
-    $db = new PDO($dsn,$user,$password,$options);
-    $sql = 'update koeroom_db set roompass = :roomid  where username = :name';
-    $stmt = $db->prepare($sql);
-    $stmt->execute(array(':name' =>$_SESSION['username'],':roomid' =>$roomid));
-    $result = $stmt->fetch(PDO::FETCH_ASSOC);
-    $stmt = null;
-    $db = null;
-    header('location: https://voiceroom.yu-9.work/room/?roomadmin='. $username .'&roomid=' . $roomid);
-  }catch (PDOExeption $e) {
-    echo $e->getMessage();
-    exit;
+  include( './include/php/voiceroom_base.php');
+  require ("./private/auth.php");//データベース接続のための情報
+  $err_msg = "";
+  if (isset($_POST['create'])) {
+    $roomid = $_POST['roomid'];
+    $username = $_SESSION['username'];
+    try {
+      $dbh = new PDO($dsn,$user,$password,$options);
+      $sql = 'update koeroom_db set roompass = :roomid  where username = :name';
+      $stmt = $db->prepare($sql);
+      $stmt->execute(array(':name' =>$_SESSION['username'],':roomid' =>$roomid));
+      $result = $stmt->fetch(PDO::FETCH_ASSOC);
+      $stmt = null;
+      $dbh = null;
+      header('location: https://koeroom.herokuapp.com/room/?roomadmin='. $username .'&roomid=' . $roomid);
+    }catch (PDOExeption $e) {
+      echo $e->getMessage();
+      exit;
+    }
   }
-}
 ?>
 <!doctype html>
 <html lang="ja">
